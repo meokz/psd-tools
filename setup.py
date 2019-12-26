@@ -38,6 +38,9 @@ setup(
     keywords="photoshop psd pil pillow",
     package_dir={'': 'src'},
     packages=find_packages('src'),
+    package_data={
+        "psd_tools": ["py.typed", "*.pyi", "**/*.pyi"],
+    },
     entry_points={
         'console_scripts': ['psd-tools=psd_tools.__main__:main']
     },
