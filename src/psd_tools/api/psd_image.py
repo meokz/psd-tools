@@ -106,7 +106,7 @@ class PSDImage(GroupMixin):
                 self = cls(PSD.read(f, **kwargs))
         return self
 
-    def save(self, fp, mode='wb', **kwargs):
+    def save(self, fp, encoding='macroman', mode='wb', padding=4):
         """
         Save the PSD file.
 
@@ -116,10 +116,10 @@ class PSDImage(GroupMixin):
         :param mode: file open mode, default 'wb'.
         """
         if hasattr(fp, 'write'):
-            self._record.write(fp, **kwargs)
+            self._record.write(fp, encoding='macroman', padding=4)
         else:
             with open(fp, mode) as f:
-                self._record.write(f, **kwargs)
+                self._record.write(f, encoding='macroman', padding=4)
 
     def topil(self, channel=None, **kwargs):
         """

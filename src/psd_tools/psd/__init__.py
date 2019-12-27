@@ -73,13 +73,13 @@ class PSD(BaseElement):
             ImageData.read(fp),
         )
 
-    def write(self, fp, encoding='macroman', **kwargs):
+    def write(self, fp, encoding='macroman', padding=4):
         logger.debug('writing %s' % self.header)
         written = self.header.write(fp)
         written += self.color_mode_data.write(fp)
         written += self.image_resources.write(fp, encoding)
         written += self.layer_and_mask_information.write(
-            fp, encoding, self.header.version, **kwargs
+            fp, encoding, self.header.version, padding
         )
         written += self.image_data.write(fp)
         return written

@@ -183,10 +183,10 @@ class LayerInfoBlock(LayerInfo):
     """
 
     @classmethod
-    def read(cls, fp, encoding='macroman', version=1, **kwargs):
+    def read(cls, fp, encoding='macroman', version=1):
         return cls._read_body(fp, encoding, version)
 
-    def write(self, fp, encoding='macroman', version=1, padding=4, **kwargs):
+    def write(self, fp, encoding='macroman', version=1, padding=4):
         return self._write_body(fp, encoding, version, padding)
 
 
